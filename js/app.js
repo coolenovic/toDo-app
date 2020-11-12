@@ -16,6 +16,25 @@ const LINE_THROUGH = "lineThrough";
 let LIST, id;
 
 // retrive item from localstorage
+let data = localStorage.getItem("TODO");
+
+// check if data is not empty
+if(data){
+    LIST = JSON.parse(data);
+    id = LIST.length; //sets the id to the last one in the list
+    loadList(LIST); //load the list to the user interface
+} else {
+    //if data is not empty
+    LIST = [];
+    id = 0;
+};
+
+//load items to the user´s interface
+function loadList(array){
+    array.forEach(function(item){
+        addToDo(item.name, item.id, item.done, item.trash);
+    });
+}
 
 // Show todays date
 const options = {weekday:"long", month:"short", day:"numeric"};
