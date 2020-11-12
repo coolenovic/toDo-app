@@ -35,4 +35,18 @@ function addToDo(toDo){
     list.insertAdjacentHTML(position, item);
 }
 
-addToDo("Drink Coffee");
+//add an item to the list when hitting enter key
+document.addEventListener("keyup", function(event){
+    if(event.keyCode === 13){
+        const toDo = input.value;
+
+        // if the input is not empty
+        if(toDo){
+            addToDo(toDo);
+        }
+
+        input.value = "";
+    }
+
+
+});
