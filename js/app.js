@@ -36,6 +36,12 @@ function loadList(array){
     });
 }
 
+//clear the local storage
+clear.addEventListener("click", function(){
+    localStorage.clear();
+    location.reload();
+});
+
 // Show todays date
 const options = {weekday:"long", month:"short", day:"numeric"};
 const today = new Date();
